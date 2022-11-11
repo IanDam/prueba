@@ -2,7 +2,16 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title("Proyecto 6")
-st.write(" En la presente pagina, a partir de un dataset dentro del que se determina la potabilidad del agua a partir de caracteristicas especificas como la cantidad de carbono organico o su condutividad, se realizan lo siguiente: ")
-st.subheader("Exploracion inicial: ")
-st.write("Para la exploración inicial obtenemos información acerca del dataset cargado. En este encontramos 3276 entradas y un total de 10 variables dentro de ella (columnas). Así mismo vemos que de las 10 columnas de datos; 1 es de typo int, 9 de tipo float.Adicionalmente se observa que existen datos nulos en las variables ph, Sulfate y Trihalomethanes.")
+st.title("Proyecto 12")
+st.write(" En la presente pagina, se presenta una presentacion de un indice de felicidad constriudo a partir de 10 diferentes variables de 60 paises ")
+st.subheader("Explicacion variables usadas: ")
+st.write("""1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:""")
