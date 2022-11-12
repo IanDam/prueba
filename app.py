@@ -1,6 +1,6 @@
 import streamlit as st
-from pandas import pd
-from numpy.random import np
+import pandas as ps
+import numpy as np
 import plotly.graph_objects as go
 
 X = tabla.to_numpy()
