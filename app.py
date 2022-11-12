@@ -1,15 +1,25 @@
 import streamlit as st
-from pandas import DataFrame
-from numpy.random import random
+from pandas import pd
+from numpy.random import np
 import plotly.graph_objects as go
 
-data1 = DataFrame(random((100, 3)))
-data2 = DataFrame(random((100, 3)))
+X = tabla.to_numpy()
+scal = StandardScaler()
+X_scal = scal.fit_transform(tabla)
+pca = PCA(n_components=10)
+X_pca = pca.fit_transform(X_scal)
 
-trace1 = [go.Scatter3d(x=data1[0], y=data1[1], z=data1[2])]
-trace2 = [go.Scatter3d(x=data2[0], y=data2[1], z=data2[2])]
+kmeans = KMeans(n_clusters=3, random_state=777,algorithm='elkan').fit(X_scal)
+pca_3['labels'] = kmeans.labels_
+Scene = dict(xaxis = dict(title  = 'PCA1'),yaxis = dict(title  = 'PCA2'),zaxis = dict(title  = 'PCA3'))
+labels = kmeans.labels_
+trace = go.Scatter3d(x=pca_3['PCA1'], y=pca_3['PCA2'], z=pca_3['PCA3'], mode='markers',marker=dict(color = labels, size= 10, line=dict(color= 'black',width = 10)))
+layout = go.Layout(margin=dict(l=0,r=0),scene = Scene,height = 800,width = 800)
+data = [trace]
+fig = go.Figure(data = data, layout = layout)
+fig.show()
 
-fig = go.Figure(trace1 + trace2, layout=go.Layout(uirevision='foo'))
+st.plotly_chart(fig,use_container_widht=True)
 
 title = st.text_input('Movie title', 'Life of Brian')
 st.plotly_chart(fig, use_container_width=True)
